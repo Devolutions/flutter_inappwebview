@@ -3838,6 +3838,15 @@ namespace flutter_inappwebview_plugin
     }
   }
 
+  void InAppWebView::clearFocus()
+  {
+    if (webView) {
+      webView->ExecuteScript(
+        L"if (document.activeElement) { document.activeElement.blur(); }",
+        nullptr);
+    }
+  }
+
   bool InAppWebView::createSurface(const HWND parentWindow,
     winrt::com_ptr<ABI::Windows::UI::Composition::ICompositor> compositor)
   {

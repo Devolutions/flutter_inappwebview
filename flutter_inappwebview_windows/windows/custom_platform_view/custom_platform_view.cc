@@ -22,7 +22,6 @@ namespace flutter_inappwebview_plugin
   constexpr auto kMethodSetScrollDelta = "setScrollDelta";
   constexpr auto kMethodSetFpsLimit = "setFpsLimit";
   constexpr auto kMethodRequestFocus = "requestFocus";
-  constexpr auto kMethodClearFocus = "clearFocus";
 
   constexpr auto kEventType = "type";
   constexpr auto kEventValue = "value";
@@ -337,13 +336,6 @@ namespace flutter_inappwebview_plugin
     else if (method_name.compare(kMethodRequestFocus) == 0) {
       if (view) {
         view->requestFocus();
-        return result->Success();
-      }
-      return result->Error(kErrorInvalidArgs);
-    }
-    else if (method_name.compare(kMethodClearFocus) == 0) {
-      if (view) {
-        view->clearFocus();
         return result->Success();
       }
       return result->Error(kErrorInvalidArgs);

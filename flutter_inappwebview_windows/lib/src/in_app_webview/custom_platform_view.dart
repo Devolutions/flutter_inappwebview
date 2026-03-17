@@ -247,15 +247,6 @@ class CustomPlatformViewController
     return _methodChannel.invokeMethod('requestFocus');
   }
 
-  /// Clears focus from the active element inside the WebView2 control.
-  Future<void> clearFocus() async {
-    if (_isDisposed) {
-      return;
-    }
-    assert(value.isInitialized);
-    return _methodChannel.invokeMethod('clearFocus');
-  }
-
   /// Sets the surface size to the provided [size].
   Future<void> _setSize(Size size, double scaleFactor) async {
     if (_isDisposed) {
@@ -382,11 +373,8 @@ class _CustomPlatformViewState extends State<CustomPlatformView>
       canRequestFocus: true,
       debugLabel: "flutter_inappwebview_windows_custom_platform_view",
       onFocusChange: (focused) {
-        if (!_controller.value.isInitialized) return;
-        if (focused) {
+        if (focused && _controller.value.isInitialized) {
           _controller.requestFocus();
-        } else {
-          _controller.clearFocus();
         }
       },
       child: SizedBox.expand(key: _key, child: _buildInner()),

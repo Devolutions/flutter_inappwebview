@@ -10,5 +10,8 @@
     "esbuild": "^0.24.0",
     "typescript": "^5.5.3"
   },
-  "private": true
+  "private": true,
+  "engines": {
+    "npm": ">=11.17.0"
+  }
 }

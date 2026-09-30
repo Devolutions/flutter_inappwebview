@@ -15,5 +15,8 @@
     "express": "latest",
     "https": "latest",
     "multiparty": "^4.2.3"
+  },
+  "engines": {
+    "npm": ">=11.17.0"
   }
 }
